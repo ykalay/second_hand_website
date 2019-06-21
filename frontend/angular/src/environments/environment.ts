@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  path:"http://localhost:8080"
+  path:"http://localhost:8080",
+  clicked:""
 };
 
 /*

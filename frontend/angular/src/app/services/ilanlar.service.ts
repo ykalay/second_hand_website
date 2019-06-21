@@ -17,4 +17,17 @@ export class IlanlarService {
     return this.http.get<ilan[]>(this.path+"/ilan/select");
 
   }
+  getilanlarTelefon():Observable<ilan[]>{
+    return this.http.get<ilan[]>(this.path+"/ilan/select/telefon");
+  }
+  getilanlarOtomobil():Observable<ilan[]>{
+    return this.http.get<ilan[]>(this.path+"/ilan/select/otomobil");
+  }
+  getilanlarEv():Observable<ilan[]>{
+    return this.http.get<ilan[]>(this.path+"/ilan/select/ev");
+  }
+  getilanlarDiger():Observable<ilan[]>{
+    return this.http.get<ilan[]>(this.path+"/ilan/select/diger");
+  }
+  
 }

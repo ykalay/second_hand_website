@@ -7,6 +7,6 @@ export class ilan{
     ilan_location:String;
     ilan_price:Number;
     ilan_image_path:String;
-    
-
+    ilan_catagory:String;
+ 
 }

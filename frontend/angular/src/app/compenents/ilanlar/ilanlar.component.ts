@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IlanlarService } from '../../services/ilanlar.service';
-import {ilan} from './ilan';
+import { ilan } from './ilan';
+import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-ilanlar',
@@ -9,14 +11,48 @@ import {ilan} from './ilan';
 })
 export class IlanlarComponent implements OnInit {
 
-  constructor(private ilanServis:IlanlarService) { }
-  ilanlar:ilan[]
+  constructor(private ilanServis: IlanlarService, private router: Router) { }
+  ilanlar: ilan[];
+  path: string = environment.path;
 
   ngOnInit() {
-    this.ilanServis.getIlanlar().subscribe(data=>{
-      this.ilanlar = data;
-      console.log(this.ilanlar);
-    })
+    console.log(this.router.url)
+    if (this.router.url == '/otomobil') {
+      this.ilanServis.getilanlarOtomobil().subscribe(data => {
+        this.ilanlar = data;
+        console.log(this.ilanlar);
+      })
+    }
+    else if (this.router.url == '/') {
+      this.ilanServis.getIlanlar().subscribe(data => {
+        this.ilanlar = data;
+        console.log(this.ilanlar);
+      })
+    }
+    else if(this.router.url == '/telefon')
+    {
+      this.ilanServis.getilanlarTelefon().subscribe(data => {
+        this.ilanlar = data;
+        console.log(this.ilanlar);
+      })
+    }
+    else if(this.router.url == '/ev')
+    {
+      this.ilanServis.getilanlarEv().subscribe(data => {
+        this.ilanlar = data;
+        console.log(this.ilanlar);
+      })
+    }
+    else if(this.router.url == '/diger')
+    {
+      this.ilanServis.getilanlarDiger().subscribe(data => {
+        this.ilanlar = data;
+        console.log(this.ilanlar);
+      })
+    }
+    
+
+
   }
 
 }

@@ -11,5 +11,9 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
   }
+  ikincieltüm_getir()
+  {
+    
+  }
 
 }

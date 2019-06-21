@@ -24,6 +24,22 @@ router.get('/select', async (req, res) => {
     var query = await ilan_schema.find({});
     res.send(query);
 })
+router.get('/select/otomobil',async(req,res)=>{
+    var query = await ilan_schema.find({"ilan_catagory":"otomobil"})
+    res.send(query);
+})
+router.get('/select/telefon',async(req,res)=>{
+    var query = await ilan_schema.find({"ilan_catagory":"telefon"})
+    res.send(query);
+})
+router.get('/select/ev',async(req,res)=>{
+    var query = await ilan_schema.find({"ilan_catagory":"ev"})
+    res.send(query);
+})
+router.get('/select/diger',async(req,res)=>{
+    var query = await ilan_schema.find({"ilan_catagory":"diger"})
+    res.send(query);
+})
 
 var ilan = {router};
 
