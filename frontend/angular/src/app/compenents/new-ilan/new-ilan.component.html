@@ -1,0 +1,154 @@
+  <div class="new_ilan">
+  <form class="ml-sm-auto col-lg-10 px-4">
+    <div class="form-group col-sm-9">
+      <label>İlan Başlığı</label>
+      <input type="text" [(ngModel)]="ilan1.ilan_baslik" class="form-control"   name="ilan_baslik" placeholder="İlan Başlığını Giriniz">
+
+    </div>
+    
+    <div class="form-group col-sm-9" >
+      <label>İlan Açıklaması</label>
+      <textarea [(ngModel)]="ilan1.ilan_aciklama"class="form-control" id="ilan.aciklama" name="ilan_aciklama" placeholder="İlan Açıklaması"></textarea>
+    </div>
+
+    <div class="form-group col-sm-2">
+      <label>Fiyat</label>
+      <input type="text" [(ngModel)]="ilan1.ilan_price" class="form-control"   name="ilan_fiyat" placeholder="İlan Fiyatını Giriniz">
+
+    </div>
+    <div class="form-group col-sm-3">
+        <select class="select-css">
+            <option value="0">Kategori</option>
+            <option value="otomobil">Vasıta</option>
+            <option value="ev">Konut</option>
+            <option value="telefon">Telefon</option>
+            <option value="diger">Diğer</option>
+        </select>
+      </div>
+
+      <div class="form-group col-sm-9" >
+          <label>İlan Adresi</label>
+          <textarea [(ngModel)]="ilan1.ilan_location"class="form-control" id="ilan.adres" name="ilan_adres" placeholder="İlan Adresi"></textarea>
+      </div>
+      <form>
+          <input id="myForm" type="file" name="file" (change)="postMethod($event.target.files)">
+          </form>
+          <input type="file" onchange="previewFile()"><br>
+<img src="" height="200" alt="Image preview...">
+
+         <button type="submit" (click)="ekle(ilan1);uploadFileToActivity();" class="btn btn-primary">Giriş Yap</button>
+  </form>
+</div>
+<script type="text/javascript">
+    function previewFile(){
+        var preview = document.querySelector('img'); //selects the query named img
+        var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+        var reader  = new FileReader();
+ 
+        reader.onloadend = function () {
+            preview.src = reader.result;
+        }
+ 
+        if (file) {
+            reader.readAsDataURL(file); //reads the data as a URL
+        } else {
+            preview.src = "";
+        }
+   }
+ 
+   previewFile();  //calls the function named previewFile()
+   </script>
+<script> //Preview
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    
+    reader.onload = function(e) {
+      $('#blah').attr('src', e.target.result);
+    }
+    
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#imgInp").change(function() {
+  readURL(this);
+});
+</script>
+
+<script type="text/javascript">
+var x, i, j, selElmnt, a, b, c;
+/* Look for any elements with the class "custom-select": */
+x = document.getElementsByClassName("custom-select");
+for (i = 0; i < x.length; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  /* For each element, create a new DIV that will act as the selected item: */
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  /* For each element, create a new DIV that will contain the option list: */
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 1; j < selElmnt.length; j++) {
+    /* For each option in the original select element,
+    create a new DIV that will act as an option item: */
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.addEventListener("click", function(e) {
+        /* When an item is clicked, update the original select box,
+        and the selected item: */
+        var y, i, k, s, h;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < s.length; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            for (k = 0; k < y.length; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            break;
+          }
+        }
+        h.click();
+    });
+    b.appendChild(c);
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+    /* When the select box is clicked, close any other select boxes,
+    and open/close the current select box: */
+    e.stopPropagation();
+    closeAllSelect(this);
+    this.nextSibling.classList.toggle("select-hide");
+    this.classList.toggle("select-arrow-active");
+  });
+}
+
+function closeAllSelect(elmnt) {
+  /* A function that will close all select boxes in the document,
+  except the current select box: */
+  var x, y, i, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  for (i = 0; i < y.length; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < x.length; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+
+/* If the user clicks anywhere outside the select box,
+then close all select boxes: */
+document.addEventListener("click", closeAllSelect);
+</script>
