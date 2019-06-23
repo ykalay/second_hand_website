@@ -13,11 +13,11 @@ router.post('/insert', (request, response) => {
     new_user.save(err => {
         if (err) {
             console.log('Kullanıcı Eklerken Bir Hata Oluştur')
-            return response.sendStatus(500).send({ message: err })
+            return response.status(500).send({ message: err })
 
         }
         console.log("Ekleme Başarılı")
-        response.sendStatus(201)
+        response.status(201).send({message:'Kayıt Tamam'})
     })
 })
 router.get('/select', async (req, res) => {
@@ -38,16 +38,16 @@ router.post('/login', async (request, response) => {
             var payload = {u_id:userdata.u_id,
                            u_name:userdata.u_name}
 
-            var token = jwt.encode(payload,'user_info')
+            var token = jwt.encode(payload,'user_info') //daha sonra kullanmak için token ver
             console.log("Giriş Başarılı");
-            return response.status(200).send({token});
+            return response.status(200).send({message:'kayıt tamam'}); //token
 
         }
         
     }
     else{
         console.log("Giriş Başarılısız");
-        return response.sendStatus(404).send({mess:'Giriş Başarısız Şifre veya kullanıcı adı yanlıs olabilir'});
+        return response.sendStatus(401).send({mess:'Giriş Başarısız Şifre veya kullanıcı adı yanlıs olabilir'});
     }
 
 })

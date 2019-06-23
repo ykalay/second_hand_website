@@ -13,7 +13,7 @@ import {UserService} from '../../services/user.service'
 export class RegisterComponent implements OnInit {
 
   constructor(private userService:UserService) { }
-  user:user;
+  user:any={};
 
 
   ngOnInit() {
@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
   }
   register(user:user)
   {
+    //console.log(user);
     this.userService.register(user);
   }
 
