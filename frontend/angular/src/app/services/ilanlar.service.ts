@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { ilan } from '../compenents/ilanlar/ilan';
@@ -29,5 +30,18 @@ export class IlanlarService {
   getilanlarDiger():Observable<ilan[]>{
     return this.http.get<ilan[]>(this.path+"/ilan/select/diger");
   }
+  ekle(ilan1:ilan)
+  {
+    let headers = new HttpHeaders();
+    headers = headers.append("Content-Type","application/json")
+    this.http.post(this.path+"/ilan/insert",ilan1,{headers:headers}).subscribe(data=>{});
+  }
+
+  postFile(fileToUpload: File) {
+    const endpoint = '.';
+    const formData: FormData = new FormData();
+    formData.append('fileKey', fileToUpload, fileToUpload.name);
+   
+}
   
 }

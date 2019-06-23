@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+﻿import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
@@ -14,6 +14,7 @@ import { RegisterComponent } from './compenents/register/register.component';
 import { componentFactoryName } from '@angular/compiler';
 import { LoginComponent } from './compenents/login/login.component';
 import { KbilgiComponent } from './compenents/kbilgi/kbilgi.component';
+import { NewIlanComponent } from './compenents/new-ilan/new-ilan.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { KbilgiComponent } from './compenents/kbilgi/kbilgi.component';
     SidebarComponent,
     RegisterComponent,
     LoginComponent,
-    KbilgiComponent
+    KbilgiComponent,
+    NewIlanComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import { KbilgiComponent } from './compenents/kbilgi/kbilgi.component';
       {path:'diger',component:IlanlarComponent},
       {path:'kayıt',component:RegisterComponent},
       {path:'giris',component:LoginComponent},
-      {path:'kbilgi',component:KbilgiComponent}
+      {path:'kbilgi',component:KbilgiComponent},
+      {path:'ilanekle',component:NewIlanComponent}
       
 
     ])
