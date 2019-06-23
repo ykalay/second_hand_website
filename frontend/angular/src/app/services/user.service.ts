@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { user } from '../compenents/register/user';
 import { registerContentQuery } from '@angular/core/src/render3';
+import {userLogin} from '../compenents/login/userLogin';
 
 
 @Injectable({
@@ -21,4 +22,11 @@ export class UserService {
     headers = headers.append("Content-Type","application/json")
     this.http.post(this.path+"/user/insert",user,{headers:headers}).subscribe();
   }
+  login(user:userLogin)
+  {
+    let headers = new HttpHeaders();
+    headers = headers.append("Content-Type","application/json")
+    this.http.post(this.path+"/user/login",user,{headers:headers}).subscribe(data=>{});
+  }
+  
 }

@@ -46,7 +46,7 @@ router.post('/login', async (request, response) => {
         
     }
     else{
-        console.log("Giriş Başarılısız");
+        console.log("Giriş Başarısız");
         return response.sendStatus(401).send({mess:'Giriş Başarısız Şifre veya kullanıcı adı yanlıs olabilir'});
     }
 

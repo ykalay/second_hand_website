@@ -12,6 +12,7 @@ import { NavComponent } from './nav/nav.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RegisterComponent } from './compenents/register/register.component';
 import { componentFactoryName } from '@angular/compiler';
+import { LoginComponent } from './compenents/login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,20 +20,23 @@ import { componentFactoryName } from '@angular/compiler';
     IlanlarComponent,
     NavComponent,
     SidebarComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+
     RouterModule.forRoot([
       {path:'',component:IlanlarComponent},
       {path:'otomobil',component:IlanlarComponent},
       {path:'telefon',component:IlanlarComponent},
       {path:'ev',component:IlanlarComponent},
       {path:'diger',component:IlanlarComponent},
-      {path:'kayıt',component:RegisterComponent}
+      {path:'kayıt',component:RegisterComponent},
+      {path:'giris',component:LoginComponent}
       
 
     ])
