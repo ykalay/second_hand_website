@@ -23,6 +23,7 @@ router.post('/insert', (request, response) => {
 router.get('/select', async (req, res) => {
     var query = await ilan_schema.find({});
     res.send(query);
+    console.log(query)
 })
 router.get('/select/otomobil',async(req,res)=>{
     var query = await ilan_schema.find({"ilan_catagory":"otomobil"})

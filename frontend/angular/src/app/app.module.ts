@@ -13,6 +13,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { RegisterComponent } from './compenents/register/register.component';
 import { componentFactoryName } from '@angular/compiler';
 import { LoginComponent } from './compenents/login/login.component';
+import { KbilgiComponent } from './compenents/kbilgi/kbilgi.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LoginComponent } from './compenents/login/login.component';
     NavComponent,
     SidebarComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    KbilgiComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { LoginComponent } from './compenents/login/login.component';
       {path:'ev',component:IlanlarComponent},
       {path:'diger',component:IlanlarComponent},
       {path:'kayıt',component:RegisterComponent},
-      {path:'giris',component:LoginComponent}
+      {path:'giris',component:LoginComponent},
+      {path:'kbilgi',component:KbilgiComponent}
       
 
     ])

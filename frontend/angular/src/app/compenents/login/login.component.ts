@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import {userLogin} from './userLogin';
+import { environment } from '../../../environments/environment';
 
 
 @Component({
@@ -16,9 +17,14 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   user:any = {};
-  login(user:userLogin)
+  giris:Object = {};
+  path_home: string = environment.path_home;
+  async login(user:userLogin)
   {
     //console.log(user);
     this.userService.login(user);
+    
+    
   }
+ 
 }

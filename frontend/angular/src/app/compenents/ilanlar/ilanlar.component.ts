@@ -14,6 +14,7 @@ export class IlanlarComponent implements OnInit {
   constructor(private ilanServis: IlanlarService, private router: Router) { }
   ilanlar: ilan[];
   path: string = environment.path;
+  
 
   ngOnInit() {
     console.log(this.router.url)

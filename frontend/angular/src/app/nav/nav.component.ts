@@ -8,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class NavComponent implements OnInit {
 
   constructor() { }
-
+  giris:Object = localStorage.getItem("user_info");
+  
   ngOnInit() {
     
   }
-
+  cikis()
+  {
+    localStorage.removeItem("user_info")
+    window.location.reload();
+  }
 }
