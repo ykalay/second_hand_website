@@ -25,8 +25,8 @@
             "styles": [
               "src/styles.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./node_modules/alertify/themes/alertify.default.css",
-              "./node_modules/alertify/themes/alertify.bootstrap.css"
+              "./node_modules/alertify/themes/alertify.min.css",
+              "./node_modules/alertify/themes/bootstrap.min.css"
 
             ],
             "scripts": [

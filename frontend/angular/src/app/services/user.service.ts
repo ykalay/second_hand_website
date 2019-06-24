@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { user } from '../compenents/register/user';
 import { registerContentQuery } from '@angular/core/src/render3';
 import { userLogin } from '../compenents/login/userLogin';
-
+declare let alertify: any;
 
 @Injectable({
   providedIn: 'root'
@@ -34,45 +34,50 @@ export class UserService {
     });
 
   }
-   update(user: user) {
+  update(user: user) {
     console.log(user)
-      alert(user)
+    
     let headers = new HttpHeaders();
     headers = headers.append("Content-Type", "application/json")
-     this.http.post(this.path + "/user/update", user, { headers: headers }).subscribe(data => {
+    this.http.post(this.path + "/user/update", user, { headers: headers }).subscribe(data => {
 
-      
-      alert('Değişiklikler Kayıt Edildi.');
+
+     
 
     });
 
   }
   get(): Observable<user[]> {
     return this.http.get<user[]>(this.path + "/user/get/" + localStorage.getItem('user_info'));
-   
-     
-  
-    
+
+
+
+
   }
-  getuserbyid(id:String):Observable<user[]>
-  {
+  getuserbyid(id: String): Observable<user[]> {
     return this.http.get<user[]>(this.path + "/user/getbyid/" + id);
   }
-  getuser_payload(token:String):Observable<object>{
-  
-    return this.http.get<object>(this.path+"/user/get/payload/" + token);
-    
+  getuser_payload(token: String): Observable<object> {
+
+    return this.http.get<object>(this.path + "/user/get/payload/" + token);
+
   }
 
   saveToken(token) {
 
+
+
     if (token != "") {
 
       localStorage.setItem(this.TOKEN_KEY, token);
+
       window.location.assign(this.path_home);
+
       /*window.location = (this.path_home);*/
 
     }
+
+
   }
   logOut() {
     localStorage.removeItem(this.TOKEN_KEY);

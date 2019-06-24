@@ -66,6 +66,12 @@ router.get('/selectByUId/:u_id',async (req,res)=>{
     var query = await ilan_schema.find({ilan_from_user_id:req.params.u_id})
     res.send(query);
 })
+router.get('/delete/:ilan_id',async(req,res)=>{
+    console.log('Çalıştı')
+    var query = await ilan_schema.findByIdAndDelete(req.params.ilan_id)
+    console.log('aasd');
+    res.send(query);
+})
 
 
 

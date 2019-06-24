@@ -5,6 +5,7 @@ import { interpolation1 } from '@angular/core/src/render3';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { user } from '../register/user';
+declare let alertify:any;
 
 import { __assign } from 'tslib';
 @Component({
@@ -23,8 +24,12 @@ export class NewIlanComponent implements OnInit {
   ngOnInit() {
     if(localStorage.getItem("user_info") == null)
     {
-      window.location.assign(this.path_home);
-      alert("İlan Eklemek İçin Giriş Yapmalısınız")
+      
+      alertify.error("İlan Eklemek İçin Giriş Yapmalısınız")
+      alertify.alert("İlan Eklemek İçin Giriş Yapmalısınız", function(){
+    alertify.message('OK');
+  });
+  window.location.assign(this.path_home);
       
     }
     this.ilanService.getuser_id(localStorage.getItem("user_info")).subscribe(data => {
@@ -44,6 +49,11 @@ export class NewIlanComponent implements OnInit {
     
 
     this.ilanService.ekle(ilan1);
+    alertify.success("İlan Ekleme İşlemi Başarılı")
+      alertify.alert("İlan Ekleme İşlemi Başarılı", function(){
+    alertify.message('OK');  });
+    setTimeout(window.location.assign(this.path_home),500);
+    ;
   }
 
   fileToUpload:any ={} ;
