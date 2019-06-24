@@ -5,6 +5,7 @@ import { interpolation1 } from '@angular/core/src/render3';
 import { HttpClient } from '@angular/common/http';
 
 import { environment } from '../../../environments/environment';
+import { __assign } from 'tslib';
 @Component({
   selector: 'app-new-ilan',
   templateUrl: './new-ilan.component.html',
@@ -18,6 +19,11 @@ export class NewIlanComponent implements OnInit {
   ngOnInit() {}
   ilan1:any = {};
   ekle(ilan1:ilan){
+    var e:HTMLSelectElement = document.getElementById("Kategori");
+    var strUser = (e.options[e.selectedIndex].value);
+    ilan1.ilan_catagory = strUser;
+
+
     this.ilanService.ekle(ilan1);
   }
 
