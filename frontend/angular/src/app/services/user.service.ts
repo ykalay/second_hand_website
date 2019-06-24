@@ -54,6 +54,15 @@ export class UserService {
   
     
   }
+  getuserbyid(id:String):Observable<user[]>
+  {
+    return this.http.get<user[]>(this.path + "/user/getbyid/" + id);
+  }
+  getuser_payload(token:String):Observable<object>{
+  
+    return this.http.get<object>(this.path+"/user/get/payload/" + token);
+    
+  }
 
   saveToken(token) {
 

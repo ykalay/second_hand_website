@@ -6,8 +6,10 @@
           <input  type="text" placeholder="Search.." name="search" [(ngModel)]="filterText">
       </div>
       
-      <div  class="col-md-10" style="margin-left: 9.5%" *ngFor="let ilan of ilanlar | ilanFilter: filterText" >
+      <div  class="col-md-10" style="margin-left: 9.5%" *ngFor="let ilan of ilanlar | ilanFilter: filterText"  >
+          <a routerLink="/ilan-info/{{ilan._id}}" class="nav-link">
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+           
           <div class="col p-4 d-flex flex-column position-static">
             <strong class="d-inline-block mb-2 text-primary">{{ilan.ilan_baslik}}</strong>
             <h3 class="mb-0">{{ilan.ilan_location}}</h3>
@@ -19,8 +21,9 @@
             <img src="../assets/ilan_resimler/{{ilan.ilan_image_path}}" alt="" width="200" height="250" >
           </div>
         </div>
+      </a>
       </div>
-
+     
       
       
     </div>

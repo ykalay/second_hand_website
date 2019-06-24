@@ -35,6 +35,22 @@ router.get('/get/:token', async (req, res) => {
     console.log(query)
     
 })
+router.get('/get/payload/:token',async(req,res)=>{
+    var payload = jwtt.verify(req.params.token,"user_info");
+    res.send(payload);
+    
+})
+router.get('/getbyid/:id',async (req,res)=>{
+    user_schema.findById(req.params.id,(err,data)=>{
+        if(err)
+        {
+            console.log('bululnamadı')
+        }
+        console.log(data)
+        res.send(data);
+    });
+})
+
 
 router.post('/update', async (req, res) => {
     
@@ -59,6 +75,7 @@ router.post('/login', async (request, response) => {
     if (user) {
         if (userdata.password == user.password) {
             var payload = {
+                _id:userdata._id,
                 u_id: userdata.u_id,
                 u_name: userdata.u_name
             }

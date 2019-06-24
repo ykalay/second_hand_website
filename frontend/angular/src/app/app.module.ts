@@ -15,7 +15,10 @@ import { componentFactoryName } from '@angular/compiler';
 import { IlanFilterPipe } from './compenents/ilanlar/ilan-filter.pipe';
 import { LoginComponent } from './compenents/login/login.component';
 import { KbilgiComponent } from './compenents/kbilgi/kbilgi.component';
-import { NewIlanComponent } from './compenents/new-ilan/new-ilan.component';
+import { NewIlanComponent } from './compenents/new-ilan/new-ilan.component';;
+import { IlanInfoComponent } from './compenents/ilan-info/ilan-info.component'
+;
+import { UilanComponent } from './compenents/uilan/uilan.component'
 
 @NgModule({
   declarations: [
@@ -28,6 +31,10 @@ import { NewIlanComponent } from './compenents/new-ilan/new-ilan.component';
     LoginComponent,
     KbilgiComponent,
     NewIlanComponent
+,
+    IlanInfoComponent
+,
+    UilanComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +51,9 @@ import { NewIlanComponent } from './compenents/new-ilan/new-ilan.component';
       {path:'kayıt',component:RegisterComponent},
       {path:'giris',component:LoginComponent},
       {path:'kbilgi',component:KbilgiComponent},
-      {path:'ilanekle',component:NewIlanComponent}
+      {path:'ilanekle',component:NewIlanComponent},
+      {path:'ilan-info/:id',component:IlanInfoComponent},
+      {path:'ilanlarım',component:UilanComponent}
       
 
     ])

@@ -56,6 +56,18 @@ router.post('/ekle',async(req, res)=>{
         response.status(201).send({message:'İlan Ekleme Tamam'})
     })
 })
+router.get('/ilan-info/:id', async(req,res)=>{
+    var id =req.params.id;
+    var query = await ilan_schema.findById(id);
+    res.send(query);
+    console.log(query);
+})
+router.get('/selectByUId/:u_id',async (req,res)=>{
+    var query = await ilan_schema.find({ilan_from_user_id:req.params.u_id})
+    res.send(query);
+})
+
+
 
 var multer  = require('multer');
 var storage = multer.diskStorage({
