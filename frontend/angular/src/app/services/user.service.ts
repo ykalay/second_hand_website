@@ -60,7 +60,8 @@ export class UserService {
     if (token != "") {
 
       localStorage.setItem(this.TOKEN_KEY, token);
-      window.location = (this.path_home);
+      window.location.assign(this.path_home);
+      /*window.location = (this.path_home);*/
 
     }
   }
