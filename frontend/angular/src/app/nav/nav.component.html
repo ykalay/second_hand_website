@@ -54,7 +54,7 @@
           <div *ngIf="giris != undefined">
             <a class="dropdown-item" routerLink="/kbilgi">Bilgilerim</a>
             <a class="dropdown-item" routerLink="/ilanlarım">İlanlarım</a>
-            <a class="dropdown-item" (click)="cikis()">Çıkış Yap</a>
+            <a class="dropdown-item" style="cursor: pointer;" (click)="cikis()" >Çıkış Yap</a>
           </div>
           <div *ngIf="!giris">
             <a class="dropdown-item" routerLink="/giris">Giriş Yap</a>

@@ -5,6 +5,7 @@ import { interpolation1 } from '@angular/core/src/render3';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { user } from '../register/user';
+import { Router } from '@angular/router';
 
 import { __assign } from 'tslib';
 @Component({
@@ -15,7 +16,7 @@ import { __assign } from 'tslib';
 })
 export class NewIlanComponent implements OnInit {
   
-  constructor(private ilanService:IlanlarService,private http:HttpClient) { }
+  constructor(private ilanService:IlanlarService,private http:HttpClient,private router: Router) { }
   path_home = environment.path_home;
   path:string = environment.path;
   ilan1:any = {};
@@ -23,7 +24,8 @@ export class NewIlanComponent implements OnInit {
   ngOnInit() {
     if(localStorage.getItem("user_info") == null)
     {
-      window.location.assign(this.path_home);
+      /*window.location.assign(this.path_home);*/
+      this.router.navigate(['/']);
       alert("İlan Eklemek İçin Giriş Yapmalısınız")
       
     }
