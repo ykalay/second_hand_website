@@ -36,25 +36,25 @@ export class NewIlanComponent implements OnInit {
     })
   }
   
+  val1:String;
   ekle(ilan1:ilan){
     var e:HTMLSelectElement = document.getElementById("Kategori");
     var strUser = (e.options[e.selectedIndex].value);
     ilan1.ilan_catagory = strUser;
     
     console.log(this.user1[0]._id + '')
-    ilan1.ilan_from_user_id = this.user1[0]._id + ''
-    
+    ilan1.ilan_from_user_id = this.user1[0]._id + '';
+    ilan1.ilan_image_path = this.val1;
 
     this.ilanService.ekle(ilan1);
   }
-
   fileToUpload:any ={} ;
   postMethod(files: FileList) {
     this.fileToUpload = files.item(0); 
     let formData = new FormData(); 
     formData.append('file', this.fileToUpload, this.fileToUpload.name); 
     this.http.post(this.path+'/ilan/upload', formData).subscribe((val) => {
-    
+    this.val1 =val['fileUrl'];
     console.log(val);
     });
     return false; 

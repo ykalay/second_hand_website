@@ -17,7 +17,7 @@ export class IlanInfoComponent implements OnInit {
   id:String= "";
   ilanlar:any = {};
   user:user[];
-
+  splitted_image:any = {};
   ngOnInit() {
     
     this.route.params.subscribe( params => this.id =(params.id) );
@@ -25,6 +25,8 @@ export class IlanInfoComponent implements OnInit {
       this.ilanlar = data;
       console.log(this.ilanlar);
       this.fnc();
+      this.splitted_image = this.ilanlar.ilan_image_path.split(",", 3); 
+      console.log(this.splitted_image);
     })
     
     

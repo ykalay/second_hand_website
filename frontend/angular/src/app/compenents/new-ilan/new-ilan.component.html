@@ -31,7 +31,7 @@
         <textarea [(ngModel)]="ilan1.ilan_location"class="form-control" id="ilan.adres" name="ilan_adres" placeholder="İlan Adresi"></textarea>
     </div>
     <form class="form-group col-sm-9">
-        <input #file id="myForm" type="file" name="file" (change)="postMethod($event.target.files);preview(file.files);" />
+        <input #file id="myForm" accept=".jpg,.jpeg,.png" type="file" name="file" (change)="postMethod($event.target.files);preview(file.files);" />
         <img [src]="imgURL" height="200" *ngIf="imgURL">
     </form>
 
