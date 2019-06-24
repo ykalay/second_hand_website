@@ -12,6 +12,7 @@ import { NavComponent } from './nav/nav.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RegisterComponent } from './compenents/register/register.component';
 import { componentFactoryName } from '@angular/compiler';
+import { IlanFilterPipe } from './compenents/ilanlar/ilan-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { componentFactoryName } from '@angular/compiler';
     IlanlarComponent,
     NavComponent,
     SidebarComponent,
-    RegisterComponent
+    RegisterComponent,
+    IlanFilterPipe
   ],
   imports: [
     BrowserModule,
