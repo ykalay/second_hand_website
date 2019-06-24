@@ -13,6 +13,7 @@ var urlEncodedParser = bodyParser.urlencoded({ extended: false });
 app.use(bodyParser.json());
 app.use(cors());
 
+app.use('/images',express.static('images'));
 
 var mongodb_connect = mongoose.connect('mongodb://localhost:27017/ikinci_el', err => {
     if (!err) {
