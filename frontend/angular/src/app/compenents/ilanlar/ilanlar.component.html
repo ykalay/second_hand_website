@@ -6,6 +6,33 @@
           <input  type="text" placeholder="Search.." name="search" [(ngModel)]="filterText">
       </div>
       
+
+      <!-- Card -->
+<div class="card card-cascade wider col-md-4" *ngFor="let ilan of ilanlar | ilanFilter: filterText"  >
+
+  <!-- Card image -->
+  <div class="view overlay">
+    <img class="card-img-top" src='{{ilan.ilan_vitrin_image_path}}' alt="Card image cap">
+    <a routerLink="/ilan-info/{{ilan._id}}" class="nav-link">
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+
+  <!-- Card content -->
+  <div class="card-body">
+
+    <!-- Title -->
+    <h4 class="card-title">{{ilan.ilan_baslik}}</h4>
+    <!-- Text -->
+    <p class="card-text">{{ilan.ilan_aciklama}}</p>
+    <!-- Button -->
+    <a href="#" class="btn btn-primary">Button</a>
+
+  </div>
+
+</div>
+<!-- Card -->
+
       <div  class="col-md-10" style="margin-left: 9.5%" *ngFor="let ilan of ilanlar | ilanFilter: filterText"  >
           <a routerLink="/ilan-info/{{ilan._id}}" class="nav-link">
         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -18,7 +45,7 @@
             <a href="#" class="stretched-link">Fiyat {{ilan.ilan_price}}</a>
           </div>
           <div class="col-auto d-none d-lg-block">
-            <img src="../assets/ilan_resimler/{{ilan.ilan_image_path}}" alt="" width="200" height="250" >
+            <img src={{ilan.ilan_image_path}} alt="" width="200" height="250" >
           </div>
         </div>
       </a>

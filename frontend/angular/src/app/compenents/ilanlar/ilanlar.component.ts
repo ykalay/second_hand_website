@@ -17,7 +17,6 @@ export class IlanlarComponent implements OnInit {
   filterText: string;
   path: string = environment.path;
 
-
   ngOnInit() {
     console.log(this.router.url)
     if (this.router.url == '/otomobil') {
@@ -31,6 +30,12 @@ export class IlanlarComponent implements OnInit {
       this.ilanServis.getIlanlar().subscribe(data => {
         this.ilanlar = data;
         console.log(this.ilanlar);
+        this.ilanlar.forEach(function(element) {
+          var splitted_image =  element.ilan_image_path.split(",", 3);
+          element.ilan_image_path = splitted_image[0];
+          console.log(element.ilan_image_path);
+          //alert(element.ilan_image_path);
+        });
       })
     }
     else if (this.router.url == '/telefon') {
@@ -51,8 +56,17 @@ export class IlanlarComponent implements OnInit {
         console.log(this.ilanlar);
       })
     }
-    
+  
   }
+
+
+  bolucu(path:String)
+  {
+    var splitted_image =  path.split(",", 3);
+    console.log(splitted_image[0]);
+    return splitted_image[0];
+  }
+
   tiklananIlan(ilan_uniqueid:string){
     console.log(ilan_uniqueid);
 
