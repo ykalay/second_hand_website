@@ -22,6 +22,6 @@ export class NavComponent implements OnInit {
   cikis()
   {
     localStorage.removeItem("user_info")
-    window.location.reload();
+    window.location.replace('/');
   }
 }
