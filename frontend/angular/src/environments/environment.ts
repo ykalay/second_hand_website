@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   path:"http://localhost:8080",
+  path_home:"http://localhost:4200",
   clicked:""
 };
 

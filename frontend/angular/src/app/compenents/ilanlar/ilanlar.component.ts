@@ -15,6 +15,7 @@ export class IlanlarComponent implements OnInit {
   ilanlar: ilan[];
   filterText:string;
   path: string = environment.path;
+  
 
   ngOnInit() {
     console.log(this.router.url)

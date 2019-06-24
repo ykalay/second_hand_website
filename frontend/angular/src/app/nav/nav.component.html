@@ -1,7 +1,10 @@
 <nav
   class="navbar navbar-expand-lg fixed-top navbar-dark flex-md-nowrap  bg-primary"
 >
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
   <a class="navbar-brand" href="#">İkinci El Şatış Sitesi</a>
   <button
     class="navbar-toggler"
@@ -48,18 +51,17 @@
           Profil
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <!--
-          <a class="dropdown-item" routerLink="">Bilgilerim</a>
-          <a class="dropdown-item" routerLink="">İlanlarım</a>
-          <a class="dropdown-item" routerLink="">Ayarlar</a>
-          <a class="dropdown-item" routerLink="">Çıkış Yap</a>
-          -->
-          <a class="dropdown-item" routerLink="/giris">Giriş Yap</a>
-          <a class="dropdown-item" routerLink="/kayıt">Kayıt Ol</a>
+          <div *ngIf="giris != undefined">
+            <a class="dropdown-item" routerLink="/kbilgi">Bilgilerim</a>
+            <a class="dropdown-item" routerLink="/ilanlarım">İlanlarım</a>
+            <a class="dropdown-item" (click)="cikis()">Çıkış Yap</a>
+          </div>
+          <div *ngIf="!giris">
+            <a class="dropdown-item" routerLink="/giris">Giriş Yap</a>
+            <a class="dropdown-item" routerLink="/kayıt">Kayıt Ol</a>
+          </div>
         </div>
       </li>
     </ul>
-
-  
   </div>
 </nav>
