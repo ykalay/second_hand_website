@@ -42,14 +42,14 @@ export class NewIlanComponent implements OnInit {
     })
   }
   
-  image_path:String ="";
+  image_path:String ='';
   val1:String;
   ekle(ilan1:ilan){
     var e:HTMLSelectElement = document.getElementById("Kategori");
     var strUser = (e.options[e.selectedIndex].value);
     ilan1.ilan_catagory = strUser;
     var splitted = this.image_path.split(",", 3);
-    ilan1.ilan_vitrin_image_path = splitted;
+    ilan1.ilan_vitrin_image_path = splitted[0];
     console.log(this.user1[0]._id + '')
     ilan1.ilan_from_user_id = this.user1[0]._id + '';
     ilan1.ilan_image_path = this.image_path;
@@ -61,7 +61,7 @@ export class NewIlanComponent implements OnInit {
     setTimeout(window.location.assign(this.path_home),500);
     ;
   }
-  count:Number=0;
+  count = 0;
   fileToUpload:any ={} ;
   postMethod(files: FileList) {
     this.fileToUpload = files.item(0); 
@@ -71,14 +71,15 @@ export class NewIlanComponent implements OnInit {
     this.val1 =val['fileUrl'];
     if(this.count<2)
     {
-      this.image_path = this.image_path , this.val1 ,',';
+      this.count++;
+      this.image_path = this.image_path + val['fileUrl'] +',';
     }else
     {
-      this.image_path = this.image_path , this.val1;
+      this.image_path = this.image_path + val['fileUrl'];
     }
     console.log(this.image_path);
 
-    console.log(val);
+    console.log(val['fileUrl']);
     });
     return false; 
     }
