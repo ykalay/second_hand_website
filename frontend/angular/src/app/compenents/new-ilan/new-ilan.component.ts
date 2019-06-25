@@ -5,6 +5,7 @@ import { interpolation1 } from '@angular/core/src/render3';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { user } from '../register/user';
+declare let alertify:any;
 import { Router } from '@angular/router';
 
 import { __assign } from 'tslib';
@@ -24,6 +25,12 @@ export class NewIlanComponent implements OnInit {
   ngOnInit() {
     if(localStorage.getItem("user_info") == null)
     {
+      
+      alertify.error("İlan Eklemek İçin Giriş Yapmalısınız")
+      alertify.alert("İlan Eklemek İçin Giriş Yapmalısınız", function(){
+    alertify.message('OK');
+  });
+  window.location.assign(this.path_home);
       /*window.location.assign(this.path_home);*/
       this.router.navigate(['/']);
       alert("İlan Eklemek İçin Giriş Yapmalısınız")
@@ -47,6 +54,11 @@ export class NewIlanComponent implements OnInit {
     ilan1.ilan_image_path = this.val1;
 
     this.ilanService.ekle(ilan1);
+    alertify.success("İlan Ekleme İşlemi Başarılı")
+      alertify.alert("İlan Ekleme İşlemi Başarılı", function(){
+    alertify.message('OK');  });
+    setTimeout(window.location.assign(this.path_home),500);
+    ;
   }
   fileToUpload:any ={} ;
   postMethod(files: FileList) {

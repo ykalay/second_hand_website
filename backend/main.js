@@ -11,7 +11,15 @@ var app = express();
 var urlEncodedParser = bodyParser.urlencoded({ extended: false });
 
 app.use(bodyParser.json());
-app.use(cors());
+const options = {
+    origin: true,
+    "Access-Control-Allow-Credentials": true,
+  
+    "Access-Control-Allow-Origin": true,
+    "Access-Control-Allow-Headers": true,
+    "Access-Control-Expose-Headers": true
+  };
+app.use(cors(options));
 
 app.use('/images',express.static('images'));
 

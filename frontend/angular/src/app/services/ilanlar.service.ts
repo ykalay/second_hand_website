@@ -36,6 +36,10 @@ export class IlanlarService {
     headers = headers.append("Content-Type","application/json")
     this.http.post(this.path+"/ilan/insert",ilan1,{headers:headers}).subscribe(data=>{});
   }
+  deleteIlan(ilan_id:String):Observable<ilan>
+  {
+    return this.http.get<ilan>(this.path+"/ilan/delete/" + ilan_id);
+  }
   getIlanInfo(id:String):Observable<ilan>{
     return this.http.get<ilan>(this.path+"/ilan/ilan-info/" + id);
   }

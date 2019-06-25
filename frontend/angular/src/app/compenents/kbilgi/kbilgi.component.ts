@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service'
 import { user } from '../register/user';
+declare let alertify:any;
 
 @Component({
   selector: 'app-kbilgi',
@@ -44,6 +45,7 @@ export class KbilgiComponent implements OnInit {
     }
     this.user.u_name = this.user1[0].u_name;
     this.userService.update(user);
+    alertify.success('Değişikler Kayıt Edildi')
   }
 
 }

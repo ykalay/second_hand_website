@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IlanlarService } from '../../services/ilanlar.service';
 import { UserService } from '../../services/user.service'
 import { ilan } from '../ilanlar/ilan';
+declare let alertify:any;
 
 @Component({
   selector: 'app-uilan',
@@ -24,9 +25,22 @@ export class UilanComponent implements OnInit {
         console.log(this.ilanlar);
       })
     })
+  
+  }
+  delete(ilan_id:String)
+  {
     
-
-    
+    if (confirm('İlanı Silmek İstediğinize Emin Misiniz ?')) {
+      
+      this.ilanServis.deleteIlan(ilan_id).subscribe(data=>{
+        alertify.success('Silme İşlemi Başarılı');
+      });
+      
+      
+  } else {
+    alertify.error('Başarısız.')
+  }
+  
   }
 
 }
