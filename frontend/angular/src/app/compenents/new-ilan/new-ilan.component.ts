@@ -28,12 +28,11 @@ export class NewIlanComponent implements OnInit {
       
       alertify.error("İlan Eklemek İçin Giriş Yapmalısınız")
       alertify.alert("İlan Eklemek İçin Giriş Yapmalısınız", function(){
-    alertify.message('OK');
+   
   });
-  window.location.assign(this.path_home);
       /*window.location.assign(this.path_home);*/
+      
       this.router.navigate(['/']);
-      alert("İlan Eklemek İçin Giriş Yapmalısınız")
       
     }
     this.ilanService.getuser_id(localStorage.getItem("user_info")).subscribe(data => {

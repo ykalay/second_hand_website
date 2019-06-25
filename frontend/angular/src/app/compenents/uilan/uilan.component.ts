@@ -3,6 +3,7 @@ import { IlanlarService } from '../../services/ilanlar.service';
 import { UserService } from '../../services/user.service'
 import { ilan } from '../ilanlar/ilan';
 declare let alertify:any;
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-uilan',
@@ -11,7 +12,7 @@ declare let alertify:any;
 })
 export class UilanComponent implements OnInit {
 
-  constructor(private ilanServis: IlanlarService,private userService: UserService) { }
+  constructor(private ilanServis: IlanlarService,private userService: UserService,private router: Router) { }
   ilanlar: ilan[];
   payload:Object;
 
@@ -31,10 +32,12 @@ export class UilanComponent implements OnInit {
   {
     
     if (confirm('İlanı Silmek İstediğinize Emin Misiniz ?')) {
+      this.ngOnInit();
       
       this.ilanServis.deleteIlan(ilan_id).subscribe(data=>{
         alertify.success('Silme İşlemi Başarılı');
       });
+
       
       
   } else {
