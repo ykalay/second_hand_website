@@ -43,15 +43,17 @@ export class NewIlanComponent implements OnInit {
     })
   }
   
+  image_path:String ="";
   val1:String;
   ekle(ilan1:ilan){
     var e:HTMLSelectElement = document.getElementById("Kategori");
     var strUser = (e.options[e.selectedIndex].value);
     ilan1.ilan_catagory = strUser;
-    ilan1.ilan_vitrin_image_path = this.val1;
+    var splitted = this.image_path.split(",", 3);
+    ilan1.ilan_vitrin_image_path = splitted;
     console.log(this.user1[0]._id + '')
     ilan1.ilan_from_user_id = this.user1[0]._id + '';
-    ilan1.ilan_image_path = this.val1;
+    ilan1.ilan_image_path = this.image_path;
 
     this.ilanService.ekle(ilan1);
     alertify.success("İlan Ekleme İşlemi Başarılı")
@@ -60,6 +62,7 @@ export class NewIlanComponent implements OnInit {
     setTimeout(window.location.assign(this.path_home),500);
     ;
   }
+  count:Number=0;
   fileToUpload:any ={} ;
   postMethod(files: FileList) {
     this.fileToUpload = files.item(0); 
@@ -67,7 +70,15 @@ export class NewIlanComponent implements OnInit {
     formData.append('file', this.fileToUpload, this.fileToUpload.name); 
     this.http.post(this.path+'/ilan/upload', formData).subscribe((val) => {
     this.val1 =val['fileUrl'];
-    
+    if(this.count<2)
+    {
+      this.image_path = this.image_path , this.val1 ,',';
+    }else
+    {
+      this.image_path = this.image_path , this.val1;
+    }
+    console.log(this.image_path);
+
     console.log(val);
     });
     return false; 
