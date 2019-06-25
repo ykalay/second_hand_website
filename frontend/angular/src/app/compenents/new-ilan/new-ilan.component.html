@@ -30,11 +30,47 @@
         <label>İlan Adresi</label>
         <textarea [(ngModel)]="ilan1.ilan_location"class="form-control" id="ilan.adres" name="ilan_adres" placeholder="İlan Adresi"></textarea>
     </div>
-    <form class="form-group col-sm-9">
-        <input #file id="myForm" accept=".jpg,.jpeg,.png" type="file" name="file" (change)="postMethod($event.target.files);preview(file.files);" />
-        <img [src]="imgURL" height="200" *ngIf="imgURL">
-    </form>
 
+    <div class="input-group col-sm-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+      </div>
+      <div class="custom-file">
+        <input #file type="file" accept=".jpg,.jpeg,.png" class="custom-file-input"  type="file" name="file"
+          aria-describedby="inputGroupFileAddon01" (change)="postMethod($event.target.files);preview(file.files);" >
+          
+        <label class="custom-file-label" for="inputGroupFile01">Vitrin Fotoğrafı Seç</label>
+        <img [src]="imgURL" height="200" *ngIf="imgURL">
+      </div>
+    </div>
+
+    <div class="input-group col-sm-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+      </div>
+      <div class="custom-file">
+        <input #file type="file" accept=".jpg,.jpeg,.png" class="custom-file-input"  type="file" name="file"
+          aria-describedby="inputGroupFileAddon01" (change)="postMethod($event.target.files);preview(file.files);" >
+          
+        <label class="custom-file-label" for="inputGroupFile01">İkinci Fotoğrafı Seç</label>
+        <img [src]="imgURL" height="200" *ngIf="imgURL">
+      </div>
+    </div>
+
+    <div class="input-group col-sm-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+      </div>
+      <div class="custom-file">
+        <input #file type="file" accept=".jpg,.jpeg,.png" class="custom-file-input"  type="file" name="file"
+          aria-describedby="inputGroupFileAddon01" (change)="postMethod($event.target.files);preview(file.files);" >
+          
+        <label class="custom-file-label" for="inputGroupFile01">Üçüncü Fotoğrafı Seç</label>
+        <img [src]="imgURL" height="200" *ngIf="imgURL">
+      </div>
+    </div>
+<br/>
+<br/>
         <div class="form-group col-sm-3">
        <button type="submit" (click)="ekle(ilan1);uploadFileToActivity();" class="btn btn-primary">Giriş Yap</button>
        
