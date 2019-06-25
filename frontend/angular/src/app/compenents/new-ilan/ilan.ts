@@ -8,5 +8,6 @@ export class ilan{
     ilan_price:Number;
     ilan_image_path:String;
     ilan_catagory:String;
+    ilan_vitrin_image_path:String;
  
 }

@@ -21,6 +21,7 @@ const options = {
   };
 app.use(cors(options));
 
+app.use('/images',express.static('images'));
 
 var mongodb_connect = mongoose.connect('mongodb://localhost:27017/ikinci_el', err => {
     if (!err) {

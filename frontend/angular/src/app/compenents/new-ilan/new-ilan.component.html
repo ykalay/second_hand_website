@@ -18,7 +18,7 @@
     </div>
     <div class="form-group col-sm-3">
         <select id="Kategori" [(ngModel)]="ilan1.ilan_catagory" class="select-css">
-            <option value="0">Kategori</option>
+            <option selected value="0">Kategori</option>
             <option value="otomobil">Vasıta</option>
             <option value="ev">Konut</option>
             <option value="telefon">Telefon</option>
@@ -27,17 +27,17 @@
       </div>
 
       <div class="form-group col-sm-9" >
-          <label>İlan Adresi</label>
-          <textarea [(ngModel)]="ilan1.ilan_location"class="form-control" id="ilan.adres" name="ilan_adres" placeholder="İlan Adresi"></textarea>
-      </div>
-      <form>
-          <input id="myForm" type="file" name="file" (change)="postMethod($event.target.files)">
-          </form>
-          <input type="file" onchange="previewFile()"><br>
-<img src="" height="200" alt="Image preview...">
+        <label>İlan Adresi</label>
+        <textarea [(ngModel)]="ilan1.ilan_location"class="form-control" id="ilan.adres" name="ilan_adres" placeholder="İlan Adresi"></textarea>
+    </div>
+    <form class="form-group col-sm-9">
+        <input #file id="myForm" accept=".jpg,.jpeg,.png" type="file" name="file" (change)="postMethod($event.target.files);preview(file.files);" />
+        <img [src]="imgURL" height="200" *ngIf="imgURL">
+    </form>
 
-         <button type="submit" (click)="ekle(ilan1);uploadFileToActivity();" class="btn btn-primary">Giriş Yap</button>
-  </form>
+        <div class="form-group col-sm-3">
+       <button type="submit" (click)="ekle(ilan1);uploadFileToActivity();" class="btn btn-primary">Giriş Yap</button>
+       
 </div>
 <script type="text/javascript">
     function previewFile(){

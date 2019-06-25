@@ -1,29 +1,91 @@
-<div  class="ml-sm-auto col-lg-10 px-4">
-    <div class="kbilgi">
-    <div class="form-group">
-        <label>Kullanıcı Adı</label>
-        <input type="text" value="{{user1[0].u_name}}" [(ngModel)]="user.u_name" class="form-control"   name="u_name"  disabled>
-    
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>eCommerce Product Detail</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,700"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div
+      class="container"
+      class="col-md-9 ml-sm-auto col-lg-10 px-4"
+      style="margin-top:5%;"
+    >
+      <div class="card">
+        <div class="container-fliud">
+          <div class="wrapper row">
+            <div class="preview col-md-8">
+              <div class="preview-pic tab-content">
+                <div class="tab-pane active" id="pic-1">
+                  <img
+                    style="max-width: width 100px;"
+                    src="{{ splitted_image[0] }}"
+                  />
+                </div>
+                <div class="tab-pane" id="pic-2">
+                  <img src="{{ splitted_image[1] }}" />
+                </div>
+                <div class="tab-pane" id="pic-3">
+                  <img src="{{ splitted_image[2] }}" />
+                </div>
+              </div>
+              <ul class="preview-thumbnail nav nav-tabs">
+                <li class="active">
+                  <a data-target="#pic-1" data-toggle="tab"
+                    ><img src="{{ splitted_image[0] }}"
+                  /></a>
+                </li>
+                <li>
+                  <a data-target="#pic-2" data-toggle="tab"
+                    ><img src="{{ splitted_image[1] }}"
+                  /></a>
+                </li>
+                <li>
+                  <a data-target="#pic-3" data-toggle="tab"
+                    ><img src="{{ splitted_image[2] }}"
+                  /></a>
+                </li>
+              </ul>
+            </div>
+            <div class="details col-md-4">
+              <h3 class="product-title">{{ ilanlar.ilan_baslik }}</h3>
+              <div class="rating">
+                <strong>İlan Sahibi:</strong>
+                {{ user.name }} <br />
+                <strong>Telefon: </strong>{{ user.tel_no }}
+              </div>
+              <br />
+
+              <h3><strong>Ürün Adresi</strong></h3>
+              <h4>
+                <p class="vote">{{ ilanlar.ilan_location }}</p>
+              </h4>
+              <br />
+              <h4 class="price">
+                Fiyat <span>{{ ilanlar.ilan_price }} TL</span>
+              </h4>
+              <br />
+
+              <h3><strong>Ürün Açıklaması</strong></h3>
+              <p class="product-description">{{ ilanlar.ilan_aciklama }}</p>
+            </div>
+            <br />
+          </div>
+        </div>
+        <br />
       </div>
-      
-      <div class="form-group">
-        <label for="exampleInputPassword1">Şifre</label>
-        <input type="password" value="{{user1[0].u_password}}" [(ngModel)]="user.u_password"class="form-control" id="exampleInputPassword1" name="password" >
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">İsim</label>
-        <input type="text" value="{{user1[0].name}}" [(ngModel)]="user.name" class="form-control"  name="isim" >
-      </div>
-      <div class="form-group">
-          <label for="exampleInputPassword1">Şehir</label>
-          <input type="text"  value="{{user1[0].location}}" [(ngModel)]="user.location" class="form-control"  name="location">
-      </div>
-      <div class="form-group">
-          <label for="exampleInputPassword1">Telefon No</label>
-          <input type="text" value="{{user1[0].tel_no}}" [(ngModel)]="user.tel_no" class="form-control" name="tel_no" >
-      </div>
-            
-    
-      <button type="submit" (click)="update(user)" class="btn btn-primary">Değişikleri Kaydet</button>
     </div>
-    </div>
+  </body>
+</html>
